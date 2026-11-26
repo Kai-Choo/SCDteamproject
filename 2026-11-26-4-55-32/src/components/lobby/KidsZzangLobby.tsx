@@ -156,8 +156,10 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
     playSound('click');
     const externalGameRoute = card.externalRoute ?? EXTERNAL_GAME_ROUTES[card.id];
     if (externalGameRoute) {
-      const gameUrl = new URL(externalGameRoute.path, window.location.origin);
-      gameUrl.searchParams.set('returnTo', window.location.origin);
+      const portalUrl = new URL(import.meta.env.BASE_URL, window.location.origin);
+      const gamePath = externalGameRoute.path.replace(/^\/+/, '');
+      const gameUrl = new URL(gamePath, portalUrl);
+      gameUrl.searchParams.set('returnTo', portalUrl.href);
       window.location.assign(gameUrl.toString());
       return;
     }

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { CustomCodeConfig, GameId } from '../../types/game';
 import { RefreshCw, ExternalLink, Code2 } from 'lucide-react';
 
@@ -77,7 +78,7 @@ export const CustomCodeRunner: React.FC<CustomCodeRunnerProps> = ({
                   {gameId === 'escape-room' && (
                     <div className="w-full aspect-video rounded-2xl overflow-hidden border-2 border-[#DECDB8] shadow-sm bg-[#CBE8F6]">
                       <img
-                        src="/assets/thumbnails/escape_room_game.png"
+                        src={publicAsset('/assets/thumbnails/escape_room_game.png')}
                         alt="고강선사유적체험관 탈출하기"
                         className="w-full h-full object-cover"
                       />

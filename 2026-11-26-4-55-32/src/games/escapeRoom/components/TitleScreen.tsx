@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { GameGuideModal } from './GameGuideModal';
 import { Play, HelpCircle } from 'lucide-react';
@@ -22,7 +23,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
       {/* Cute 2D Storybook Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/assets/escape-room/cute_title_bg_1795598616177.jpg')` }}
+        style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/cute_title_bg_1795598616177.jpg')}')` }}
       />
 
       {/* Top Wooden Badges + Title Banner matching reference layout */}
@@ -57,7 +58,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
         <div className="hidden xs:flex sm:flex items-end">
           <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl overflow-hidden border-4 border-[#4d2810] bg-[#fff4d6] shadow-xl -rotate-2">
             <img
-              src="/assets/escape-room/cute_explorer_avatar_1795598616698.jpg"
+              src={publicAsset('/assets/escape-room/cute_explorer_avatar_1795598616698.jpg')}
               alt="탐험가 캐릭터"
               className="w-full h-full object-cover"
             />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { ItemIcon } from './ItemIcon';
 import { Award, Clock, BookOpen, RotateCcw, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -28,14 +29,14 @@ export const EndingScreen: React.FC<EndingScreenProps> = ({
       {/* Subtle Sunny Village Tint Backdrop */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none"
-        style={{ backgroundImage: `url('/assets/escape-room/cute_prehistoric_village_1795598617747.jpg')` }}
+        style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/cute_prehistoric_village_1795598617747.jpg')}')` }}
       />
 
       {/* Header with Cute Explorer Avatar */}
       <div className="relative z-10 flex flex-col items-center text-center space-y-2 border-b-[3px] border-[#e6d5b8] pb-4">
         <div className="w-20 h-20 rounded-full overflow-hidden border-[3px] border-[#4d2810] bg-[#ffeaad] shadow-md">
           <img
-            src="/assets/escape-room/cute_explorer_avatar_1795598616698.jpg"
+            src={publicAsset('/assets/escape-room/cute_explorer_avatar_1795598616698.jpg')}
             alt="꼬마 탐험가"
             className="w-full h-full object-cover"
           />
@@ -67,7 +68,7 @@ export const EndingScreen: React.FC<EndingScreenProps> = ({
           <div className="flex flex-col items-center gap-2 text-center">
             <div className="w-24 h-24 rounded-2xl overflow-hidden border-[3px] border-[#4d2810] shadow-sm bg-[#fffaf0]">
               <img
-                src="/assets/escape-room/cute_excavation_site_1795598618116.jpg"
+                src={publicAsset('/assets/escape-room/cute_excavation_site_1795598618116.jpg')}
                 alt="발굴된 고강동 토기"
                 className="w-full h-full object-cover"
               />

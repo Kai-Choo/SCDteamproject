@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { InventoryItem, ClueItem } from '../types/game';
 
@@ -174,7 +175,7 @@ export const Stage1Lab: React.FC<Stage1LabProps> = ({
       {/* Cute 2D Storybook Excavation Illustration */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/assets/escape-room/cute_excavation_site_1795598618116.jpg')` }}
+        style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/cute_excavation_site_1795598618116.jpg')}')` }}
       />
 
       {/* Clickable Brush Pickup Area (aligned right over the cute illustrated brush on the sand pit) */}

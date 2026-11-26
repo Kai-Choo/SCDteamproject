@@ -1,4 +1,5 @@
 import { GameMetadata } from '../types/game';
+import { publicAsset } from '@/utils/publicAsset';
 
 export const GAMES_DATA: GameMetadata[] = [
   {
@@ -11,7 +12,7 @@ export const GAMES_DATA: GameMetadata[] = [
     targetAge: '전체 연령 (초등 전학년)',
     difficulty: '보통',
     color: '#B45309',
-    thumbnailUrl: '/assets/pottery_thumb.svg',
+    thumbnailUrl: publicAsset('/assets/pottery_thumb.svg'),
     tags: ['3D 인터랙티브', '유물 복원', '빗살무늬', '퍼즐']
   },
   {
@@ -24,7 +25,7 @@ export const GAMES_DATA: GameMetadata[] = [
     targetAge: '초등학생 이상',
     difficulty: '쉬움',
     color: '#854D0E',
-    thumbnailUrl: '/assets/thumbnails/stoneknife.png',
+    thumbnailUrl: publicAsset('/assets/thumbnails/stoneknife.png'),
     tags: ['수확 타이밍', '청동기 농경', '곡식 자르기', '리듬 액션']
   },
   {
@@ -37,7 +38,7 @@ export const GAMES_DATA: GameMetadata[] = [
     targetAge: '초등 3학년 이상',
     difficulty: '도전',
     color: '#C2410C',
-    thumbnailUrl: '/assets/thumbnails/escape_room_game.png',
+    thumbnailUrl: publicAsset('/assets/thumbnails/escape_room_game.png'),
     tags: ['미스터리', '움집 탐험', '암호 해독', '스토리형']
   },
   {
@@ -50,7 +51,7 @@ export const GAMES_DATA: GameMetadata[] = [
     targetAge: '전체 연령',
     difficulty: '보통',
     color: '#2D6A4F',
-    thumbnailUrl: '/assets/thumbnails/custom_bow_game.png',
+    thumbnailUrl: publicAsset('/assets/thumbnails/custom_bow_game.png'),
     tags: ['무기 커스텀', '사격 슈팅', '화살촉', '바람 계산']
   }
 ];

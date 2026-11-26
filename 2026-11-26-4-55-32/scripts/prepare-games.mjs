@@ -6,6 +6,7 @@ import {fileURLToPath} from 'node:url';
 const portalRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const workspaceRoot = resolve(portalRoot, '..');
 const publicRoot = join(portalRoot, 'public');
+const portalBase = process.argv.includes('--pages') ? '/SCDteamproject/' : '/';
 const viteBuilds = [
   {name: 'ArrowGame', root: join(workspaceRoot, 'ArrowGame-main')},
   {name: 'Kokang2', root: join(workspaceRoot, 'Kokang2-main')},
@@ -20,6 +21,11 @@ for (const game of viteBuilds) {
   const result = spawnSync(process.execPath, [viteCli, 'build'], {
     cwd: game.root,
     stdio: 'inherit',
+    env: {
+      ...process.env,
+      VITE_BASE_PATH: `${portalBase}${game.name}/`,
+      VITE_PORTAL_BASE: portalBase,
+    },
   });
   if (result.error) throw result.error;
   if (result.status !== 0) {

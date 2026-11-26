@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { ItemIcon } from './ItemIcon';
 import { X, Check } from 'lucide-react';
@@ -162,7 +163,7 @@ export const BoarHuntMiniGame: React.FC<BoarHuntMiniGameProps> = ({
       {/* Cute 2D Storybook Forest Clearing */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/assets/escape-room/cute_forest_boar_bg_1795598618683.jpg')` }}
+        style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/cute_forest_boar_bg_1795598618683.jpg')}')` }}
       />
 
       {/* Top Counter HUD */}

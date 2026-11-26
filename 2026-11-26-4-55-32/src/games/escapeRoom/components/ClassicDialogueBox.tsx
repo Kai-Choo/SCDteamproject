@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { ChevronDown, FastForward } from 'lucide-react';
 
@@ -86,7 +87,7 @@ export const ClassicDialogueBox: React.FC<ClassicDialogueBoxProps> = ({
           <div className="relative shrink-0 -mb-2 sm:-mb-3 -ml-1 sm:ml-0 z-20">
             <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-[#e8a2ac] shadow-2xl bg-stone-900 ring-2 ring-stone-950/60">
               <img 
-                src="/assets/escape-room/archaeologist_heroine_bust_1790926437229.jpg" 
+                src={publicAsset('/assets/escape-room/archaeologist_heroine_bust_1790926437229.jpg')}
                 alt="한유나 연구원"
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform"
               />

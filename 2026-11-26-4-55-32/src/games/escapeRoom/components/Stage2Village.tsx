@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { InventoryItem, ClueItem } from '../types/game';
 import { HotspotMarker } from './HotspotMarker';
@@ -251,7 +252,7 @@ export const Stage2Village: React.FC<Stage2VillageProps> = ({
         <>
           <div 
             className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-            style={{ backgroundImage: `url('/assets/escape-room/umjib_interior_view_1790926115968.jpg')` }}
+            style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/umjib_interior_view_1790926115968.jpg')}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
           <AmbientStageEffects theme="workshop" />
@@ -349,7 +350,7 @@ export const Stage2Village: React.FC<Stage2VillageProps> = ({
         <>
           <div 
             className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-            style={{ backgroundImage: `url('/assets/escape-room/prehistoric_village_scene_1790923408627.jpg')` }}
+            style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/prehistoric_village_scene_1790923408627.jpg')}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
           <AmbientStageEffects theme="village" />
@@ -422,7 +423,7 @@ export const Stage2Village: React.FC<Stage2VillageProps> = ({
         <>
           <div 
             className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-            style={{ backgroundImage: `url('/assets/escape-room/storage_pit_detail_1790926129790.jpg')` }}
+            style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/storage_pit_detail_1790926129790.jpg')}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
           <AmbientStageEffects theme="village" />
@@ -471,7 +472,7 @@ export const Stage2Village: React.FC<Stage2VillageProps> = ({
         <>
           <div 
             className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-            style={{ backgroundImage: `url('/assets/escape-room/forest_trail_footprints_1790926142083.jpg')` }}
+            style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/forest_trail_footprints_1790926142083.jpg')}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
           <AmbientStageEffects theme="village" />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { InventoryItem, ClueItem } from '../types/game';
 import { HotspotMarker } from './HotspotMarker';
@@ -115,7 +116,7 @@ export const Stage4Altar: React.FC<Stage4AltarProps> = ({
       {/* Background Room View: Ancient Concentric Stone Altar on Mountain Peak */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-        style={{ backgroundImage: `url('/assets/escape-room/prehistoric_ritual_altar_1790923421228.jpg')` }}
+        style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/prehistoric_ritual_altar_1790923421228.jpg')}')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
       <AmbientStageEffects theme="altar" />

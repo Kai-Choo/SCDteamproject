@@ -1,4 +1,5 @@
 import { HintData, StageId } from '../types/game';
+import { publicAsset } from '@/utils/publicAsset';
 
 export interface StageConfig {
   id: StageId;
@@ -25,7 +26,7 @@ export const STAGES_CONFIG: Record<StageId, StageConfig> = {
     name: '1단계. 시간 이동 장치의 비밀',
     subtitle: '연구실에서 유물 조사하기',
     locationName: '부천 고강선사유적체험관 제1연구실',
-    imagePath: '/assets/escape-room/gogang_lab_interior_1790923386568.jpg',
+    imagePath: publicAsset('/assets/escape-room/gogang_lab_interior_1790923386568.jpg'),
     introDialogues: [
       {
         speaker: '한유나 연구원',
@@ -55,7 +56,7 @@ export const STAGES_CONFIG: Record<StageId, StageConfig> = {
     name: '2단계. 사라진 유물의 흔적',
     subtitle: '선사마을에서 발자국 찾기',
     locationName: '3천 년 전 고강동 청동기마을',
-    imagePath: '/assets/escape-room/prehistoric_village_scene_1790923408627.jpg',
+    imagePath: publicAsset('/assets/escape-room/prehistoric_village_scene_1790923408627.jpg'),
     introDialogues: [
       {
         speaker: '한유나 연구원',
@@ -85,7 +86,7 @@ export const STAGES_CONFIG: Record<StageId, StageConfig> = {
     name: '3단계. 선사인의 생활 속 단서',
     subtitle: '석기 장인의 도구 만들기',
     locationName: '선사마을 석기 공방',
-    imagePath: '/assets/escape-room/craftsman_bench_view_1790926153534.jpg',
+    imagePath: publicAsset('/assets/escape-room/craftsman_bench_view_1790926153534.jpg'),
     introDialogues: [
       {
         speaker: '석기 장인',
@@ -115,7 +116,7 @@ export const STAGES_CONFIG: Record<StageId, StageConfig> = {
     name: '4단계. 유물에 숨겨진 진실',
     subtitle: '제단에서 보물 복원하기',
     locationName: '고천산 적석환유구 제단',
-    imagePath: '/assets/escape-room/prehistoric_ritual_altar_1790923421228.jpg',
+    imagePath: publicAsset('/assets/escape-room/prehistoric_ritual_altar_1790923421228.jpg'),
     introDialogues: [
       {
         speaker: '한유나 연구원',
@@ -145,7 +146,7 @@ export const STAGES_CONFIG: Record<StageId, StageConfig> = {
     name: '마지막 관문. 현대(2026)로 귀환',
     subtitle: '시공간 포털 열기',
     locationName: '시공간 귀환 포털',
-    imagePath: '/assets/escape-room/prehistoric_ritual_altar_1790923421228.jpg',
+    imagePath: publicAsset('/assets/escape-room/prehistoric_ritual_altar_1790923421228.jpg'),
     introDialogues: [
       {
         speaker: '한유나 연구원',
@@ -175,7 +176,7 @@ export const STAGES_CONFIG: Record<StageId, StageConfig> = {
     name: '엔딩. 시간을 건넌 진실',
     subtitle: '에필로그',
     locationName: '부천 고강선사유적체험관 기획전시실',
-    imagePath: '/assets/escape-room/gogang_lab_interior_1790923386568.jpg',
+    imagePath: publicAsset('/assets/escape-room/gogang_lab_interior_1790923386568.jpg'),
     introDialogues: [],
     hints: {
       mission1: { tier1: '', tier2: '', tier3: '' },

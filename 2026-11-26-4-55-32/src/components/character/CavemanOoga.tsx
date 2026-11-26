@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 
 interface CavemanOogaProps {
   bubblePosition?: 'left' | 'right' | 'top';
@@ -66,7 +67,7 @@ export const CavemanOoga: React.FC<CavemanOogaProps> = ({
           <div className="relative z-10">
             {!imgError ? (
               <img
-                src="/assets/aistudio/image_f60b75ee.png"
+                src={publicAsset('/assets/aistudio/image_f60b75ee.png')}
                 alt="우가우가 원시인"
                 onError={() => setImgError(true)}
                 className="w-24 sm:w-28 h-24 sm:h-28 object-contain drop-shadow-md select-none"

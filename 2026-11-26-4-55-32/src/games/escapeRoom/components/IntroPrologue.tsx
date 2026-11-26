@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { Sparkles, FastForward, ArrowRight } from 'lucide-react';
 
@@ -18,7 +19,7 @@ export const IntroPrologue: React.FC<IntroPrologueProps> = ({ onComplete }) => {
         '부천 고강동 선사유적 발굴 조사를 진행하던 당신.',
         '깊이 120cm의 청동기 문화층 흙을 파내려가던 중, 마침내 3천 년 전 선사시대 대형 도자기를 발견하게 된다.'
       ],
-      bgImage: '/assets/escape-room/prehistoric_pottery_excavation_1792070902654.jpg'
+      bgImage: publicAsset('/assets/escape-room/prehistoric_pottery_excavation_1792070902654.jpg')
     },
     {
       caption: '도자기 곁에 파묻혀 있던 정체불명의 푸른 유물',
@@ -26,7 +27,7 @@ export const IntroPrologue: React.FC<IntroPrologueProps> = ({ onComplete }) => {
         '발굴 붓으로 도자기 주변의 흙을 조심스럽게 털어내자,',
         '도자기 바로 옆 흙 속에서 은은한 푸른빛과 에너지를 내뿜는 신비한 비취 곡옥 유물이 모습을 드러냈다.'
       ],
-      bgImage: '/assets/escape-room/prehistoric_pottery_excavation_1792070902654.jpg'
+      bgImage: publicAsset('/assets/escape-room/prehistoric_pottery_excavation_1792070902654.jpg')
     },
     {
       caption: '손을 댄 순간 일어난 시공간의 소용돌이',
@@ -34,7 +35,7 @@ export const IntroPrologue: React.FC<IntroPrologueProps> = ({ onComplete }) => {
         '호기심에 이끌려 도자기 곁의 유물을 조심스럽게 만진 순간,',
         '유물에서 눈부신 빛이 뿜어져 나오며 땅이 흔들리고 당신은 3천 년 전 과거 청동기시대로 빨려 들어가게 되는데...!'
       ],
-      bgImage: '/assets/escape-room/prehistoric_village_scene_1790923408627.jpg'
+      bgImage: publicAsset('/assets/escape-room/prehistoric_village_scene_1790923408627.jpg')
     }
   ];
 

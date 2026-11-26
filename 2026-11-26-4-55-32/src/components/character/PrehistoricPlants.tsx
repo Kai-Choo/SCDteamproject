@@ -1,4 +1,5 @@
 import React from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 
 // 1이미지: 상단 노란 꽃/열매 수풀 (벼 수확게임에 적용)
 export const PlantRow1: React.FC<{ className?: string; height?: number | string }> = ({
@@ -13,7 +14,7 @@ export const PlantRow1: React.FC<{ className?: string; height?: number | string 
       <div
         className="w-full h-full bg-no-repeat bg-contain bg-center"
         style={{
-          backgroundImage: "url('/assets/aistudio/image_677edd98.png')",
+          backgroundImage: `url('${publicAsset('/assets/aistudio/image_677edd98.png')}')`,
           backgroundSize: '100% 320%',
           backgroundPosition: 'center 4%',
         }}
@@ -35,7 +36,7 @@ export const PlantRow2: React.FC<{ className?: string; height?: number | string 
       <div
         className="w-full h-full bg-no-repeat bg-contain bg-center"
         style={{
-          backgroundImage: "url('/assets/aistudio/image_677edd98.png')",
+          backgroundImage: `url('${publicAsset('/assets/aistudio/image_677edd98.png')}')`,
           backgroundSize: '100% 330%',
           backgroundPosition: 'center 50%',
         }}
@@ -57,11 +58,11 @@ export const PlantRow3: React.FC<{ className?: string; height?: number | string 
       <div
         className="w-full h-full bg-no-repeat bg-contain bg-center"
         style={{
-          backgroundImage: "url('/assets/aistudio/image_677edd98.png')",
+          backgroundImage: `url('${publicAsset('/assets/aistudio/image_677edd98.png')}')`,
           backgroundSize: '100% 320%',
           backgroundPosition: 'center 96%',
         }}
       />
     </div>
   );
-};
+}

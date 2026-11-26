@@ -30,7 +30,8 @@ export const CleanOverlay: React.FC<CleanOverlayProps> = ({
   const returnHome = () => {
     sound.playClick();
     const returnTo = new URLSearchParams(window.location.search).get('returnTo');
-    let destination = new URL('/', window.location.origin);
+    const portalBase = import.meta.env.VITE_PORTAL_BASE || '/';
+    let destination = new URL(portalBase, window.location.origin);
 
     if (returnTo) {
       try {
@@ -42,7 +43,7 @@ export const CleanOverlay: React.FC<CleanOverlayProps> = ({
           destination = requestedDestination;
         }
       } catch {
-        destination = new URL('/', window.location.origin);
+        destination = new URL(portalBase, window.location.origin);
       }
     }
 

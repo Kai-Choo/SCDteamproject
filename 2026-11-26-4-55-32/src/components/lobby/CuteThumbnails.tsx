@@ -1,4 +1,5 @@
 import React from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { PlantRow1, PlantRow2, PlantRow3 } from '../character/PrehistoricPlants';
 
 // 1. 토기 조각 맞추기 썸네일 (빗살무늬토기 복원)
@@ -9,7 +10,7 @@ export const PotteryThumbnail: React.FC = () => {
     <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-[#FFE8D1] select-none rounded-xl group">
       {!imgError ? (
         <img
-          src="/assets/aistudio/KakaoTalk_20261125_182724786_45d23497.png"
+          src={publicAsset('/assets/aistudio/KakaoTalk_20261125_182724786_45d23497.png')}
           alt="토기 조각 맞추기"
           onError={() => setImgError(true)}
           className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
@@ -87,7 +88,7 @@ export const StoneKnifeThumbnail: React.FC = () => {
     <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-[#29221C] select-none rounded-xl group">
       {!imgError ? (
         <img
-          src="/assets/aistudio/KakaoTalk_20261125_212026605_ff8b7280.png"
+          src={publicAsset('/assets/aistudio/KakaoTalk_20261125_212026605_ff8b7280.png')}
           alt="반달돌칼 벼 수확게임"
           onError={() => setImgError(true)}
           className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
@@ -146,7 +147,7 @@ export const EscapeRoomThumbnail: React.FC = () => {
     <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-[#CBE8F6] select-none rounded-xl group">
       {!imgError ? (
         <img
-          src="/assets/thumbnails/escape_room_game.png"
+          src={publicAsset('/assets/thumbnails/escape_room_game.png')}
           alt="고강선사유적체험관 탈출하기"
           onError={() => setImgError(true)}
           className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
@@ -173,7 +174,7 @@ export const CustomBowThumbnail: React.FC = () => {
     <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-[#1B2C1C] select-none rounded-xl group">
       {!imgError ? (
         <img
-          src="/assets/aistudio/KakaoTalk_20261125_212026605_01_494c6454.png"
+          src={publicAsset('/assets/aistudio/KakaoTalk_20261125_212026605_01_494c6454.png')}
           alt="커스텀 활게임"
           onError={() => setImgError(true)}
           className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"

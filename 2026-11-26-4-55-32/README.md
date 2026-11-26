@@ -55,6 +55,11 @@ npm run dev
 
 # 프로덕션 빌드
 npm run build
+
+# GitHub Pages 경로로 빌드
+npm run build:pages
 ```
 
 `npm run dev`는 활게임, 반달돌칼 수확게임, 토기 조각 맞추기 게임을 먼저 빌드한 뒤 포털의 같은 호스트에서 제공합니다. 각 게임은 `/ArrowGame/`, `/Kokang2/`, `/Pottery/` 경로로 열립니다.
+
+`main` 브랜치에 푸시하면 GitHub Actions가 GitHub Pages용으로 빌드하고 배포합니다: <https://kai-choo.github.io/SCDteamproject/>.

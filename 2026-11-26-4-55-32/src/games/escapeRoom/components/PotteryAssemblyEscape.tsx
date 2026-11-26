@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { ItemIcon } from './ItemIcon';
 import { Sparkles, X } from 'lucide-react';
@@ -64,7 +65,7 @@ export const PotteryAssemblyEscape: React.FC<PotteryAssemblyEscapeProps> = ({
       {/* Sunny Storybook Village Backdrop */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-35"
-        style={{ backgroundImage: `url('/assets/escape-room/cute_prehistoric_village_1795598617747.jpg')` }}
+        style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/cute_prehistoric_village_1795598617747.jpg')}')` }}
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,248,224,0.88)_0%,rgba(255,236,184,0.75)_100%)] pointer-events-none" />
 

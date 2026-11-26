@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { InventoryItem, ClueItem } from '../types/game';
 import { AmbientStageEffects } from './AmbientStageEffects';
@@ -352,7 +353,7 @@ export const PrehistoricWorldEscape: React.FC<PrehistoricWorldEscapeProps> = ({
         <>
           <div
             className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-            style={{ backgroundImage: `url('/assets/escape-room/cute_prehistoric_village_1795598617747.jpg')` }}
+            style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/cute_prehistoric_village_1795598617747.jpg')}')` }}
           />
           <AmbientStageEffects theme="village" />
 

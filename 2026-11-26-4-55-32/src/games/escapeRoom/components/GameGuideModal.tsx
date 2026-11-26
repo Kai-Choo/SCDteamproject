@@ -1,4 +1,5 @@
 import React from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { X, HelpCircle, ArrowRight, Lightbulb, Backpack, MousePointerClick } from 'lucide-react';
 import { sound } from '../services/soundService';
 import { ItemIcon } from './ItemIcon';
@@ -53,7 +54,7 @@ export const GameGuideModal: React.FC<GameGuideModalProps> = ({ isOpen, onClose 
             <div className="rounded-2xl border-3 border-[#4d2810] bg-[#fff5d6] overflow-hidden shadow-sm flex flex-col">
               <div className="relative h-28 sm:h-32 w-full bg-[#d8f3dc] overflow-hidden border-b-2 border-[#4d2810]">
                 <img
-                  src="/assets/escape-room/cute_excavation_site_1795598618116.jpg"
+                  src={publicAsset('/assets/escape-room/cute_excavation_site_1795598618116.jpg')}
                   alt="흙 털기"
                   className="w-full h-full object-cover"
                 />
@@ -119,7 +120,7 @@ export const GameGuideModal: React.FC<GameGuideModalProps> = ({ isOpen, onClose 
             <div className="rounded-2xl border-3 border-[#4d2810] bg-[#fff5d6] overflow-hidden shadow-sm flex flex-col">
               <div className="relative h-28 sm:h-32 w-full bg-[#d8f3dc] overflow-hidden border-b-2 border-[#4d2810]">
                 <img
-                  src="/assets/escape-room/cute_prehistoric_village_1795598617747.jpg"
+                  src={publicAsset('/assets/escape-room/cute_prehistoric_village_1795598617747.jpg')}
                   alt="마을 탐험"
                   className="w-full h-full object-cover"
                 />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { InventoryItem } from '../types/game';
 import { sound } from '../services/soundService';
 import { ItemIcon } from './ItemIcon';
@@ -63,7 +64,7 @@ export const BottomDialogueOrInventory: React.FC<BottomDialogueOrInventoryProps>
           <div className="relative z-30 shrink-0 pointer-events-none">
             <div className="relative w-20 sm:w-24 h-20 sm:h-24 rounded-2xl overflow-hidden border-3 border-[#522d14] shadow-lg bg-[#fff4d6]">
               <img
-                src="/assets/escape-room/cute_explorer_avatar_1795598616698.jpg"
+                src={publicAsset('/assets/escape-room/cute_explorer_avatar_1795598616698.jpg')}
                 alt="탐험가"
                 className="w-full h-full object-cover"
               />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import { sound } from '../services/soundService';
 import { InventoryItem, ClueItem } from '../types/game';
 import { HotspotMarker } from './HotspotMarker';
@@ -119,7 +120,7 @@ export const Stage3Living: React.FC<Stage3LivingProps> = ({
       {/* Background Room View: Stone Craftsman Workshop */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-        style={{ backgroundImage: `url('/assets/escape-room/craftsman_bench_view_1790926153534.jpg')` }}
+        style={{ backgroundImage: `url('${publicAsset('/assets/escape-room/craftsman_bench_view_1790926153534.jpg')}')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
       <AmbientStageEffects theme="workshop" />
