@@ -61,9 +61,6 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
           >
             <Home className="w-4 h-4 stroke-[2.4]" />
           </button>
-          <div className="w-9 h-9 rounded-2xl wii-gloss-blue flex items-center justify-center text-white border border-sky-300 shrink-0">
-            <Target className="w-5 h-5 stroke-[2.5] text-white" />
-          </div>
           <div>
             <div className="flex items-center gap-1.5">
               <h1 className="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 whitespace-nowrap">

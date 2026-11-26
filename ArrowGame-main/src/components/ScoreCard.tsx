@@ -140,7 +140,7 @@ export const ScoreCard: React.FC<ScoreCardProps> = ({
 
         {arrowHistory.length === 0 ? (
           <div className="bg-slate-50 rounded-2xl p-8 border-2 border-dashed border-slate-200 text-center text-slate-500 text-xs font-medium">
-            아직 발사된 화살이 없습니다. 화면을 터치/클릭하여 첫 화살을 쏘아보세요!
+            게임을 시작한 뒤 화면을 터치/클릭해 첫 화살을 쏘아보세요!
           </div>
         ) : (
           <div className="flex flex-wrap gap-2">

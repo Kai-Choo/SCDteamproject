@@ -3,15 +3,19 @@ import confetti from 'canvas-confetti';
 import { ArrowHit, BowConfig, BowStats, GameMode, ArcheryTheme } from '../types';
 import { archeryAudio } from '../utils/audio';
 import { calculateBowStats } from '../utils/bowPresets';
-import { Compass, RotateCcw, Crosshair, Award, Flame, Landmark } from 'lucide-react';
+import { Compass, RotateCcw, Crosshair, Award, Flame, Landmark, Clock, Target } from 'lucide-react';
 
 interface ArcheryCanvasProps {
   bow: BowConfig;
   mode: GameMode;
   distance: number;
   onShotFired: (hit: ArrowHit) => void;
+  onShotStarted: () => void;
   arrowHistory: ArrowHit[];
   onResetRound: () => void;
+  onOpenModeSelection: () => void;
+  isRoundActive: boolean;
+  remainingSeconds: number;
   theme?: ArcheryTheme;
   onToggleTheme?: (theme: ArcheryTheme) => void;
 }
@@ -155,8 +159,12 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
   mode,
   distance,
   onShotFired,
+  onShotStarted,
   arrowHistory,
   onResetRound,
+  onOpenModeSelection,
+  isRoundActive,
+  remainingSeconds,
   theme = 'traditional',
   onToggleTheme,
 }) => {
@@ -2552,6 +2560,7 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
 
   // Pointer / Mouse interaction handlers
   const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (!isRoundActive) return;
     if (flightArrowRef.current?.active) return; // Wait for current arrow to land
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -2590,6 +2599,10 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
   const handlePointerUp = () => {
     if (!isDrawing) return;
     setIsDrawing(false);
+    if (!isRoundActive) {
+      setDrawProgress(0);
+      return;
+    }
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -2689,6 +2702,7 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
       isX,
     };
 
+    onShotStarted();
     setDrawProgress(0);
   };
 
@@ -2705,13 +2719,28 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
-        className="w-full h-full cursor-crosshair touch-none"
+        className={`w-full h-full touch-none ${isRoundActive ? 'cursor-crosshair' : 'cursor-default'}`}
       />
 
       {/* Top HUD Bar */}
       <div className="absolute top-4 left-4 right-4 flex items-start justify-between pointer-events-none">
         {/* Left: Distance, Mode Badge & Reset */}
         <div className="flex items-center gap-2 pointer-events-auto">
+          <button
+            type="button"
+            onClick={() => {
+              flightArrowRef.current = null;
+              setIsDrawing(false);
+              setDrawProgress(0);
+              onOpenModeSelection();
+            }}
+            className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-sky-200 bg-gradient-to-b from-sky-300 via-blue-400 to-blue-600 text-white shadow-[0_6px_12px_rgba(37,99,235,0.3)] transition hover:brightness-105 active:scale-95"
+            aria-label="게임 모드 선택"
+            title="게임 모드 선택"
+          >
+            <Target className="h-5 w-5 stroke-[2.4]" />
+          </button>
+
           <div className="flex items-center gap-2 bg-white/92 backdrop-blur-md px-4 py-2 rounded-2xl border-2 border-sky-200/90 shadow-md">
             <Crosshair className="w-4 h-4 text-sky-500" />
             <span className="text-xs font-extrabold text-slate-900 tracking-wide tabular-nums">
@@ -2731,10 +2760,15 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
             id="reset-round-btn"
             type="button"
             onClick={() => {
+              if (!isRoundActive) return;
               archeryAudio.playClickSound();
+              flightArrowRef.current = null;
+              setIsDrawing(false);
+              setDrawProgress(0);
               onResetRound();
             }}
-            className="p-2.5 rounded-2xl bg-white/92 backdrop-blur-md border-2 border-sky-200/90 text-slate-600 hover:text-sky-600 hover:border-sky-400 cursor-pointer transition-all shadow-md active:scale-95"
+            disabled={!isRoundActive}
+            className="p-2.5 rounded-2xl bg-white/92 backdrop-blur-md border-2 border-sky-200/90 text-slate-600 hover:text-sky-600 hover:border-sky-400 cursor-pointer transition-all shadow-md active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
             title="새 라운드 시작"
           >
             <RotateCcw className="w-4 h-4" />
@@ -2785,6 +2819,19 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
 
         {/* Right: Wind Speed Compass (non-horseback) with Shot counter underneath */}
         <div className="flex flex-col items-end gap-2 pointer-events-auto">
+          {mode !== 'olympic' && (
+            <div
+              className="flex items-center gap-2 bg-white/92 backdrop-blur-md px-3.5 py-1.5 rounded-2xl border-2 border-sky-200/90 shadow-md"
+              aria-live="polite"
+              aria-label={`남은 시간 ${remainingSeconds}초`}
+            >
+              <Clock className="w-4 h-4 text-sky-500" />
+              <span className="text-xs font-black text-sky-700 tabular-nums">
+                남은 시간 00:{String(remainingSeconds).padStart(2, '0')}
+              </span>
+            </div>
+          )}
+
           {mode !== 'horseback' && (
             <div className="flex items-center gap-3 bg-white/92 backdrop-blur-md px-3.5 py-2 rounded-2xl border-2 border-sky-200/90 shadow-md">
               <div className="flex items-center gap-2">
@@ -2813,7 +2860,9 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
           <div className="flex items-center gap-2 bg-white/92 backdrop-blur-md px-3.5 py-1.5 rounded-2xl border-2 border-sky-200/90 shadow-md">
             <Award className="w-4 h-4 text-amber-500" />
             <span className="text-xs font-normal text-slate-800 tabular-nums">
-              화살 {arrowHistory.length}발 발사
+              {mode === 'olympic'
+                ? `화살 ${arrowHistory.length} / 9발`
+                : `화살 ${arrowHistory.length}발 발사`}
             </span>
           </div>
         </div>
