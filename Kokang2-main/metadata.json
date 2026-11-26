@@ -1,0 +1,6 @@
+{
+  "name": "반달돌칼: 청동기 풍년 베기 3D",
+  "description": "청동기 시대의 대표 농기구 반달돌칼로 황금빛 곡물을 베어 수확하는 닌자후르츠 스타일 3D 액션 게임",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
