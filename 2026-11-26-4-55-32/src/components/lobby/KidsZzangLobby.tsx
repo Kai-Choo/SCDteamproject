@@ -76,7 +76,7 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
       badgeColor: 'bg-[#EA580C]',
       badgeBorderColor: 'border-[#9A3412]',
       thumbnail: <PotteryThumbnail />,
-      externalRoute: { path: '/Pottery/select.html' }
+      externalRoute: { path: '/Pottery/' }
     },
     {
       id: 'stone-knife',
