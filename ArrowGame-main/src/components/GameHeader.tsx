@@ -49,7 +49,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
 
   return (
     <header className="w-full bg-white/92 border-b-2 border-sky-200/80 backdrop-blur-md sticky top-0 z-50 shadow-[0_4px_20px_rgba(14,75,140,0.06)]">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-stretch justify-between gap-2 px-3 py-2 sm:flex-row sm:items-center sm:gap-4 sm:px-4 sm:py-3">
         {/* App Logo & Title */}
         <div className="flex items-center gap-3">
           <button
@@ -71,7 +71,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
         </div>
 
         {/* View Switcher Tabs & Sound Toggle */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           {/* Theme Switcher */}
           {onToggleTheme && (
             <button
@@ -81,7 +81,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
                 archeryAudio.playClickSound();
                 onToggleTheme(theme === 'traditional' ? 'olympic' : 'traditional');
               }}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-white border-2 border-slate-200 hover:border-sky-400 text-slate-700 hover:text-sky-600 text-xs font-bold transition-all shadow-sm cursor-pointer active:scale-95 whitespace-nowrap"
+              className="flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-2xl border-2 border-slate-200 bg-white px-2 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition-all hover:border-sky-400 hover:text-sky-600 active:scale-95 sm:px-3.5 sm:py-2"
               title="배경 풍경 테마 전환 (조선 활터 / 올림픽)"
             >
               {theme === 'traditional' ? (
@@ -98,7 +98,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
             </button>
           )}
 
-          <div className="flex items-center p-1 bg-slate-100 rounded-2xl border border-slate-200/90">
+          <div className="flex items-center rounded-2xl border border-slate-200/90 bg-slate-100 p-1">
             <button
               id="nav-workshop-btn"
               type="button"
@@ -106,7 +106,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
                 archeryAudio.playClickSound();
                 onSelectView('workshop');
               }}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold cursor-pointer transition-all whitespace-nowrap ${
+              className={`flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-xl px-2 py-1.5 text-xs font-bold transition-all sm:px-3.5 ${
                 activeView === 'workshop'
                   ? 'wii-gloss-blue text-white border border-sky-300'
                   : 'text-slate-600 hover:text-slate-900'
@@ -123,7 +123,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
                 archeryAudio.playClickSound();
                 onSelectView('archery');
               }}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold cursor-pointer transition-all whitespace-nowrap ${
+              className={`flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-xl px-2 py-1.5 text-xs font-bold transition-all sm:px-3.5 ${
                 activeView === 'archery'
                   ? 'wii-gloss-blue text-white border border-sky-300'
                   : 'text-slate-600 hover:text-slate-900'

@@ -184,12 +184,12 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
   }, [currentPage]);
 
   return (
-    <div className="w-full h-screen max-h-screen overflow-hidden flex flex-col bg-[#F7F3EB] select-none relative font-round">
+    <div className="w-full h-dvh max-h-dvh overflow-hidden flex flex-col bg-[#F7F3EB] select-none relative font-round">
       {/* Main Stage Surface */}
       <main className="flex-1 min-h-0 h-full flex flex-col relative overflow-hidden bg-gradient-to-b from-[#EAF4FB] via-[#F7F4ED] to-[#EFE7D8]">
         {playingGameId ? (
           /* Game Playing Mode: Full width expansive game screen */
-          <div className="p-1.5 sm:p-2.5 w-full h-full min-h-0 overflow-y-auto flex flex-col">
+          <div className="screen-safe-area w-full flex-1 min-h-0 min-w-0 overflow-y-auto flex flex-col">
             <GamePlayView
               gameId={playingGameId}
               onBackToLobby={() => {

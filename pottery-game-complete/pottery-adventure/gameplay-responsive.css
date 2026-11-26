@@ -1,0 +1,86 @@
+:root {
+  --game-page-gap: clamp(12px, 2.5vmin, 28px);
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding: var(--game-page-gap);
+  display: flex;
+}
+
+#app {
+  width: min(100%, 1680px);
+  height: calc(100dvh - (var(--game-page-gap) * 2));
+  min-height: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 18px);
+}
+
+header {
+  height: auto;
+  min-height: clamp(64px, 12vh, 98px);
+  flex: 0 0 auto;
+  padding-inline: clamp(14px, 3vw, 40px);
+  gap: clamp(8px, 2vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+main {
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 18px);
+}
+
+#stage {
+  height: auto;
+  min-height: 220px;
+  flex: 1 1 0;
+  border-radius: 12px;
+}
+
+.tray-section {
+  flex: 0 0 auto;
+  padding: clamp(12px, 2vw, 22px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+footer {
+  margin-top: auto;
+  padding: 8px 12px;
+}
+
+@media (max-width: 600px) {
+  header {
+    min-height: 60px;
+  }
+
+  #stage {
+    min-height: 180px;
+  }
+
+  .piece-card {
+    height: clamp(72px, 13dvh, 118px);
+  }
+}
+
+@media (max-height: 520px) {
+  #stage {
+    min-height: 170px;
+  }
+}

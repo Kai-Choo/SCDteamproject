@@ -23,6 +23,10 @@ html, body, #root {
   overflow: hidden;
 }
 
+:root {
+  --game-screen-gap: clamp(12px, 2.5vmin, 28px);
+}
+
 @keyframes pulseGlow {
   0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.6)); }
   50% { opacity: 1; filter: drop-shadow(0 0 24px rgba(245, 158, 11, 0.9)); }

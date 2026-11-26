@@ -6,6 +6,7 @@
     --bg-surface: #FFFDF9;
     --border-beige: #DECDB8;
     --text-primary: #382A1E;
+    --game-screen-gap: clamp(12px, 2.5vmin, 28px);
   }
 
   html {
@@ -116,7 +117,8 @@
 }
 
 .screen-safe-area {
-  padding: clamp(12px, 2.5vw, 40px);
+  box-sizing: border-box;
+  padding: var(--game-screen-gap);
 }
 
 .lobby-game-card {

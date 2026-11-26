@@ -1,11 +1,12 @@
 import React from 'react';
-import { Volume2, VolumeX, RotateCcw, Pause, Play, Heart, Home } from 'lucide-react';
+import { Volume2, VolumeX, RotateCcw, Pause, Play, Heart, Home, Clock } from 'lucide-react';
 import { sound } from '../utils/audio';
 
 interface CleanOverlayProps {
   score: number;
   lives: number;
   maxLives: number;
+  roundTimeLeft: number;
   isPaused: boolean;
   isGameOver: boolean;
   isMuted: boolean;
@@ -19,6 +20,7 @@ export const CleanOverlay: React.FC<CleanOverlayProps> = ({
   score,
   lives,
   maxLives,
+  roundTimeLeft,
   isPaused,
   isGameOver,
   isMuted,
@@ -78,6 +80,15 @@ export const CleanOverlay: React.FC<CleanOverlayProps> = ({
                 </div>
               );
             })}
+          </div>
+          <div
+            aria-label={`남은 시간 ${roundTimeLeft}초`}
+            className={`mt-1 flex w-fit items-center gap-1.5 rounded-lg border border-stone-700/70 bg-stone-900/70 px-2 py-1 font-modern text-sm font-bold tabular-nums ${
+              roundTimeLeft <= 10 ? 'text-red-300' : 'text-amber-100'
+            }`}
+          >
+            <Clock className="h-4 w-4" aria-hidden="true" />
+            <span>{roundTimeLeft}초</span>
           </div>
         </div>
 
@@ -165,7 +176,7 @@ export const CleanOverlay: React.FC<CleanOverlayProps> = ({
         </div>
       )}
 
-      {/* Game Over Overlay (Hearts all depleted, Large central restart button) */}
+      {/* Game over overlay with a central restart button */}
       {isGameOver && (
         <div
           onClick={() => {
@@ -174,6 +185,9 @@ export const CleanOverlay: React.FC<CleanOverlayProps> = ({
           }}
           className="absolute inset-0 z-40 bg-black/60 backdrop-blur-[3px] flex flex-col items-center justify-center cursor-pointer pointer-events-auto gap-4 animate-in fade-in duration-300"
         >
+          <p className="font-traditional text-xl font-bold text-amber-100 drop-shadow-lg">
+            {roundTimeLeft === 0 ? '시간 종료!' : '게임 종료!'}
+          </p>
           <div className="font-modern tabular-nums text-6xl font-extrabold text-amber-300 drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
             {score.toLocaleString()}
           </div>

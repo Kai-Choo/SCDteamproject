@@ -2710,7 +2710,7 @@ export const ArcheryCanvas: React.FC<ArcheryCanvasProps> = ({
     <div
       ref={containerRef}
       id="archery-canvas-container"
-      className="relative w-full h-[620px] rounded-3xl overflow-hidden bg-sky-100 border-4 border-white shadow-[0_14px_40px_rgba(14,75,140,0.16)] select-none"
+      className="relative w-full h-[clamp(280px,64dvh,620px)] min-h-[280px] rounded-3xl overflow-hidden bg-sky-100 border-4 border-white shadow-[0_14px_40px_rgba(14,75,140,0.16)] select-none"
     >
       {/* Game Canvas */}
       <canvas

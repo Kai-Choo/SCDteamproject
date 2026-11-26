@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --game-screen-gap: clamp(12px, 2.5vmin, 28px);
+  }
+
   body {
     font-family: 'Outfit', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: #eef4fb;

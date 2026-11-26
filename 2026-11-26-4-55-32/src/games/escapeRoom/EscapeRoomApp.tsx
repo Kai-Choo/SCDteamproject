@@ -175,7 +175,7 @@ export const EscapeRoomApp: React.FC<EscapeRoomAppProps> = ({ onEscapeComplete }
     gameState.playTimeSeconds > 5;
 
   return (
-    <div className="escape-room-scope w-full h-full flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-[#efe6d2] text-[#3d1c06] flex flex-col font-sans select-none relative p-1.5 sm:p-2.5 rounded-2xl border-2 border-[#DECDB8]">
+    <div className="escape-room-scope w-full flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-[#efe6d2] text-[#3d1c06] flex flex-col font-sans select-none relative p-1.5 sm:p-2.5 rounded-2xl border-2 border-[#DECDB8]">
       {isPlayingPrologue ? (
         <IntroPrologue onComplete={handleCompletePrologue} />
       ) : isTitleMenu ? (

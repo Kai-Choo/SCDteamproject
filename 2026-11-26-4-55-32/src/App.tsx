@@ -12,7 +12,7 @@ const MainAppContent: React.FC = () => {
   const [isStampModalOpen, setIsStampModalOpen] = useState(false);
 
   return (
-    <div className="w-screen h-screen max-h-screen overflow-hidden flex flex-col select-none">
+    <div className="w-full h-dvh max-h-dvh overflow-hidden flex flex-col select-none">
       <KidsZzangLobby
         onOpenStampModal={() => setIsStampModalOpen(true)}
       />

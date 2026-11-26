@@ -25,7 +25,7 @@ export const GamePlayView: React.FC<GamePlayViewProps> = ({
   const isCustomMode = config?.sourceType !== 'built-in';
 
   return (
-    <div className="flex-1 flex flex-col h-full w-full mx-auto select-none font-round">
+    <div className="flex-1 min-h-0 min-w-0 flex flex-col w-full mx-auto select-none font-round">
       {/* Minimal Top Bar: Back to Lobby button only (shown when a game is active) */}
       <div className="flex items-center justify-between gap-3 px-1 pb-1.5 shrink-0">
         <button
@@ -54,7 +54,7 @@ export const GamePlayView: React.FC<GamePlayViewProps> = ({
             onOpenEditor={() => setIsEditorOpen(true)}
           />
         ) : (
-          <div className="h-full w-full flex-1 min-h-0 flex flex-col">
+          <div className="w-full flex-1 min-h-0 flex flex-col">
             {gameId === 'pottery-3d' && <Pottery3DGame />}
             {gameId === 'stone-knife' && <StoneKnifeGame />}
             {gameId === 'escape-room' && <EscapeRoomGame />}

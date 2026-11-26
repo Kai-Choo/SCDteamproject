@@ -147,7 +147,7 @@ export default function App() {
       : '올림픽 공식 룰';
 
   return (
-    <div className="min-h-screen wii-bg text-slate-800 flex flex-col selection:bg-sky-400 selection:text-white">
+    <div className="min-h-dvh p-[var(--game-screen-gap)] wii-bg text-slate-800 flex flex-col selection:bg-sky-400 selection:text-white">
       {/* Global Navigation Header */}
       <GameHeader
         activeView={activeView}
@@ -157,7 +157,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-6">
+      <main className="flex-1 min-h-0 w-full max-w-7xl mx-auto p-0">
         {activeView === 'workshop' ? (
           <BowWorkshop
             currentBow={currentBow}
@@ -196,7 +196,7 @@ export default function App() {
           role="presentation"
         >
           <section
-            className="w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl bg-white p-5 shadow-2xl sm:p-7"
+            className="w-full max-w-4xl max-h-[92dvh] overflow-y-auto rounded-3xl bg-white p-5 shadow-2xl sm:p-7"
             role="dialog"
             aria-modal="true"
             aria-labelledby="round-dialog-title"
