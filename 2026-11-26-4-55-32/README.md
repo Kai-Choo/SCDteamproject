@@ -46,8 +46,11 @@
 # 의존성 설치
 npm install
 
-# 로컬 개발 서버 실행 (포트 3000)
+# 포털 로컬 개발 서버 실행 (포트 3000)
 npm run dev
+
+# 별도 터미널에서 토기 게임 서버 실행 (포트 3004)
+npm run dev:pottery
 
 # 프로덕션 빌드
 npm run build

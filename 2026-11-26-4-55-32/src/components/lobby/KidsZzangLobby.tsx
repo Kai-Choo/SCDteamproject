@@ -48,6 +48,7 @@ interface GameCardItem {
   badgeColor: string;
   badgeBorderColor: string;
   thumbnail: React.ReactNode;
+  externalRoute?: { path: string; devPort: string };
 }
 
 const EXTERNAL_GAME_ROUTES: Partial<Record<GameId, { path: string; devPort: string }>> = {
@@ -74,7 +75,8 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
       badge: '인기 1위',
       badgeColor: 'bg-[#EA580C]',
       badgeBorderColor: 'border-[#9A3412]',
-      thumbnail: <PotteryThumbnail />
+      thumbnail: <PotteryThumbnail />,
+      externalRoute: { path: '/Pottery/', devPort: '3004' }
     },
     {
       id: 'stone-knife',
@@ -150,9 +152,9 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
     setCurrentPage(pageIndex);
   };
 
-  const handleCardClick = (gameId: GameId) => {
+  const handleCardClick = (card: GameCardItem) => {
     playSound('click');
-    const externalGameRoute = EXTERNAL_GAME_ROUTES[gameId];
+    const externalGameRoute = card.externalRoute ?? EXTERNAL_GAME_ROUTES[card.id];
     if (externalGameRoute) {
       const gameUrl = new URL(externalGameRoute.path, window.location.origin);
       if (import.meta.env.DEV) {
@@ -163,9 +165,9 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
       return;
     }
 
-    setPlayingGameId(gameId);
+    setPlayingGameId(card.id);
     if (onStartGame) {
-      onStartGame(gameId);
+      onStartGame(card.id);
     }
   };
 
@@ -223,7 +225,7 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
                     {pageGames.map((card, cardIdx) => (
                       <div
                         key={cardIdx}
-                        onClick={() => handleCardClick(card.id)}
+                        onClick={() => handleCardClick(card)}
                         className="flex flex-col items-center cursor-pointer group w-full"
                       >
                         {/* 1. Large Generous Card Thumbnail Box */}

@@ -54,16 +54,6 @@ export const CleanOverlay: React.FC<CleanOverlayProps> = ({
       <div className="absolute inset-x-0 top-0 pointer-events-none z-30 p-4 md:p-6 flex items-start justify-between">
         {/* Score & Hearts (5 lives) */}
         <div className="flex flex-col gap-1.5">
-          <button
-            type="button"
-            onClick={returnHome}
-            aria-label="홈으로 돌아가기"
-            title="홈으로 돌아가기"
-            className="pointer-events-auto self-start p-2 rounded-xl bg-orange-400 border-2 border-orange-500 hover:bg-orange-500 hover:border-orange-600 text-white cursor-pointer transition-all shadow-sm active:scale-95"
-          >
-            <Home className="w-4 h-4" />
-          </button>
-
           {/* Pure numeric score without text labels */}
           <div className="flex items-baseline">
             <span className="font-modern tabular-nums text-4xl md:text-5xl font-extrabold text-amber-200/90 tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
@@ -91,42 +81,53 @@ export const CleanOverlay: React.FC<CleanOverlayProps> = ({
         </div>
 
         {/* Minimal icon controls: Pause, Restart, Mute */}
-        <div className="pointer-events-auto flex items-center gap-1.5 bg-stone-900/60 backdrop-blur-md p-1.5 rounded-xl border border-stone-800/60">
-          {!isGameOver && (
+        <div className="pointer-events-auto flex items-center gap-2">
+          <div className="flex items-center gap-1.5 bg-stone-900/60 backdrop-blur-md p-1.5 rounded-xl border border-stone-800/60">
+            {!isGameOver && (
+              <button
+                disabled={countdown !== null}
+                onClick={() => {
+                  sound.playClick();
+                  onTogglePause();
+                }}
+                aria-label={isPaused ? 'Resume' : 'Pause'}
+                className="p-2 text-stone-300 hover:text-amber-300 hover:bg-stone-800/80 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                {isPaused ? <Play className="w-4 h-4 fill-current text-emerald-400" /> : <Pause className="w-4 h-4" />}
+              </button>
+            )}
+
             <button
               disabled={countdown !== null}
               onClick={() => {
                 sound.playClick();
-                onTogglePause();
+                onRestart();
               }}
-              aria-label={isPaused ? 'Resume' : 'Pause'}
-              className="p-2 text-stone-300 hover:text-amber-300 hover:bg-stone-800/80 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              aria-label="Restart"
+              className="p-2 text-stone-400 hover:text-stone-100 hover:bg-stone-800/80 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              {isPaused ? <Play className="w-4 h-4 fill-current text-emerald-400" /> : <Pause className="w-4 h-4" />}
+              <RotateCcw className="w-4 h-4" />
             </button>
-          )}
 
+            <button
+              onClick={() => {
+                sound.playClick();
+                onToggleMute();
+              }}
+              aria-label="Toggle Sound"
+              className="p-2 text-stone-400 hover:text-stone-100 hover:bg-stone-800/80 rounded-lg transition-colors"
+            >
+              {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4" />}
+            </button>
+          </div>
           <button
-            disabled={countdown !== null}
-            onClick={() => {
-              sound.playClick();
-              onRestart();
-            }}
-            aria-label="Restart"
-            className="p-2 text-stone-400 hover:text-stone-100 hover:bg-stone-800/80 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            type="button"
+            onClick={returnHome}
+            aria-label="홈으로 돌아가기"
+            title="홈으로 돌아가기"
+            className="p-2 rounded-xl bg-orange-400 border-2 border-orange-500 hover:bg-orange-500 hover:border-orange-600 text-white cursor-pointer transition-all shadow-sm active:scale-95"
           >
-            <RotateCcw className="w-4 h-4" />
-          </button>
-
-          <button
-            onClick={() => {
-              sound.playClick();
-              onToggleMute();
-            }}
-            aria-label="Toggle Sound"
-            className="p-2 text-stone-400 hover:text-stone-100 hover:bg-stone-800/80 rounded-lg transition-colors"
-          >
-            {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4" />}
+            <Home className="w-4 h-4" />
           </button>
         </div>
       </div>
