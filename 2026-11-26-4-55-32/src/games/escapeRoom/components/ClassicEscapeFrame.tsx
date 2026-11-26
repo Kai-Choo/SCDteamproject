@@ -88,10 +88,10 @@ export const ClassicEscapeFrame: React.FC<ClassicEscapeFrameProps> = ({
                 sound.playClick();
                 onReturnToTitle();
               }}
-              className="px-2 py-1 rounded-xl bg-[#5c3318] hover:bg-[#4a2812] border border-[#3d1f0c] text-[#ffe9c7] text-xs font-bold flex items-center gap-1 cursor-pointer"
+              className="px-2 py-1 rounded-full bg-[#F39A3A] hover:bg-[#F7A64B] border border-[#E9750E] text-white text-xs font-bold flex items-center gap-1 cursor-pointer shadow-md"
               title="메인"
             >
-              <Home className="w-3.5 h-3.5" />
+              <Home className="w-3.5 h-3.5 stroke-[2.4]" />
               <span className="hidden sm:inline">메인</span>
             </button>
           )}

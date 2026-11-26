@@ -125,9 +125,9 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
               sound.playClick();
               onHome();
             }}
-            className="py-3 px-4 bg-stone-800 hover:bg-stone-700 text-stone-200 font-medium rounded-xl border border-stone-700 transition-colors flex items-center justify-center gap-2 text-sm"
+            className="py-3 px-4 bg-[#F39A3A] hover:bg-[#F7A64B] text-white font-medium rounded-full border border-[#E9750E] transition-colors flex items-center justify-center gap-2 text-sm shadow-md"
           >
-            <Home className="w-4 h-4" />
+            <Home className="w-4 h-4 stroke-[2.4]" />
             <span>메뉴</span>
           </button>
         </div>

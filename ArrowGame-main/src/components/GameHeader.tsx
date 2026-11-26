@@ -55,11 +55,11 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
           <button
             type="button"
             onClick={returnHome}
-            className="p-2 rounded-xl bg-orange-400 border-2 border-orange-500 hover:bg-orange-500 hover:border-orange-600 text-white cursor-pointer transition-all shadow-sm active:scale-95 shrink-0"
+            className="p-2 rounded-full bg-[#F39A3A] border-2 border-[#E9750E] hover:bg-[#F7A64B] hover:border-[#E9750E] text-white cursor-pointer transition-all shadow-md active:scale-95 shrink-0"
             aria-label="홈으로 돌아가기"
             title="홈으로 돌아가기"
           >
-            <Home className="w-4 h-4" />
+            <Home className="w-4 h-4 stroke-[2.4]" />
           </button>
           <div className="w-9 h-9 rounded-2xl wii-gloss-blue flex items-center justify-center text-white border border-sky-300 shrink-0">
             <Target className="w-5 h-5 stroke-[2.5] text-white" />
