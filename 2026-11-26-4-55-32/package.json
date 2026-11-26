@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run prepare:games",
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "dev:pottery": "vite ../pottery-game-complete/pottery-adventure --base /Pottery/ --port=3004 --host=0.0.0.0",
+    "prepare:games": "node scripts/prepare-games.mjs",
+    "prebuild": "npm run prepare:games",
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",

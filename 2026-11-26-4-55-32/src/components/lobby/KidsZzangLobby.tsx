@@ -48,12 +48,12 @@ interface GameCardItem {
   badgeColor: string;
   badgeBorderColor: string;
   thumbnail: React.ReactNode;
-  externalRoute?: { path: string; devPort: string };
+  externalRoute?: { path: string };
 }
 
-const EXTERNAL_GAME_ROUTES: Partial<Record<GameId, { path: string; devPort: string }>> = {
-  'custom-bow': { path: '/ArrowGame/', devPort: '3002' },
-  'stone-knife': { path: '/Kokang2/', devPort: '3003' },
+const EXTERNAL_GAME_ROUTES: Partial<Record<GameId, { path: string }>> = {
+  'custom-bow': { path: '/ArrowGame/' },
+  'stone-knife': { path: '/Kokang2/' },
 };
 
 export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) => {
@@ -76,7 +76,7 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
       badgeColor: 'bg-[#EA580C]',
       badgeBorderColor: 'border-[#9A3412]',
       thumbnail: <PotteryThumbnail />,
-      externalRoute: { path: '/Pottery/', devPort: '3004' }
+      externalRoute: { path: '/Pottery/' }
     },
     {
       id: 'stone-knife',
@@ -157,9 +157,6 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
     const externalGameRoute = card.externalRoute ?? EXTERNAL_GAME_ROUTES[card.id];
     if (externalGameRoute) {
       const gameUrl = new URL(externalGameRoute.path, window.location.origin);
-      if (import.meta.env.DEV) {
-        gameUrl.port = externalGameRoute.devPort;
-      }
       gameUrl.searchParams.set('returnTo', window.location.origin);
       window.location.assign(gameUrl.toString());
       return;

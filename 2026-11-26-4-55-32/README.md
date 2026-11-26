@@ -46,12 +46,15 @@
 # 의존성 설치
 npm install
 
-# 포털 로컬 개발 서버 실행 (포트 3000)
-npm run dev
+# 처음 실행할 때 각 게임의 의존성도 설치
+npm --prefix ../ArrowGame-main install
+npm --prefix ../Kokang2-main install
 
-# 별도 터미널에서 토기 게임 서버 실행 (포트 3004)
-npm run dev:pottery
+# 포털과 연결된 모든 게임을 한 주소에서 실행
+npm run dev
 
 # 프로덕션 빌드
 npm run build
 ```
+
+`npm run dev`는 활게임, 반달돌칼 수확게임, 토기 조각 맞추기 게임을 먼저 빌드한 뒤 포털의 같은 호스트에서 제공합니다. 각 게임은 `/ArrowGame/`, `/Kokang2/`, `/Pottery/` 경로로 열립니다.

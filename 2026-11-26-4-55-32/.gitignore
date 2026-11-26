@@ -2,6 +2,9 @@ node_modules/
 build/
 dist/
 coverage/
+/public/ArrowGame/
+/public/Kokang2/
+/public/Pottery/
 .DS_Store
 *.log
 .env*
