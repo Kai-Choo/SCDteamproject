@@ -6,3 +6,5 @@
 .home{left:1.8%;top:3%;width:9%;height:auto;aspect-ratio:1/1;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;background:#f39a3a;border:max(2px,.25cqw) solid #e9750e;box-shadow:0 4px 10px #24130955;border-radius:999px;z-index:2;color:#fff}
 .home:hover{filter:brightness(1.08);box-shadow:0 5px 12px #24130966}
 .home svg{display:block;width:48%;height:48%;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+body{position:relative;isolation:isolate}
+body::before{content:"";position:fixed;inset:-20px;z-index:-1;background:#faf6e9 url("./assets/selection.png") center/cover no-repeat;filter:blur(18px);transform:scale(1.02)}
