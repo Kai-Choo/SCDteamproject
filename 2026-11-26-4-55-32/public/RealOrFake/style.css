@@ -4,6 +4,10 @@
 html{min-height:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;min-height:100vh;min-height:100svh;display:grid;place-items:center;background:#d2e7b7;isolation:isolate;padding:clamp(16px,3vw,36px) 0}
 body:before{content:'';position:fixed;inset:0;background:url('excavation-cute.png') center/cover no-repeat;z-index:-1;pointer-events:none}
+.home-button{position:fixed;top:clamp(12px,2.4vw,24px);left:clamp(12px,2.4vw,24px);z-index:5;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:2px solid #fffdf2;border-radius:999px;background:#ba8050;color:#fffaf0;box-shadow:0 4px 0 #8c5936;text-decoration:none;font-size:16px;line-height:1;touch-action:manipulation}
+.home-button:hover{background:#a86f43;transform:translateY(-2px)}
+.home-button:focus-visible{outline:4px solid #4b8874;outline-offset:4px}
+.home-button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 main{width:calc(100% - 40px);max-width:860px;margin:auto;padding:clamp(20px,3vw,34px);background:#fff8e8ed;border:3px solid #fffdf2;border-radius:32px;box-shadow:0 8px 0 #ac805526,0 18px 45px #61492d24;min-width:0}
 h2{text-align:center;font-size:clamp(24px,3vw,32px);font-weight:400;line-height:1.45;margin:12px 0 20px;word-break:keep-all;overflow-wrap:anywhere;color:#62412c}
 .intro{text-align:center;line-height:1.8;font-size:18px;color:#7c6249;word-break:keep-all;overflow-wrap:anywhere}
