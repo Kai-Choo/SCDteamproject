@@ -48,35 +48,14 @@ export const PotteryThumbnail: React.FC = () => {
 
 // 2. 진짜유물 가짜 유물 찾기 썸네일
 export const RealVsFakeRelicThumbnail: React.FC = () => (
-  <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#E0E7FF] via-[#C7D2FE] to-[#818CF8]/30 select-none rounded-2xl">
-    <div className="absolute top-2 right-2 text-indigo-600">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
-    </div>
-
-    <div className="relative flex items-center justify-center gap-3 z-10">
-      <div className="flex flex-col items-center">
-        <div className="w-11 h-13 rounded-b-xl bg-[#D97706] border-2 border-[#78350F] flex items-center justify-center text-white text-[11px] font-bold shadow-xs">
-          진짜
-        </div>
-        <div className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-extrabold mt-1 shadow-xs">
-          O
-        </div>
-      </div>
-
-      <span className="text-sm font-extrabold text-[#4F46E5] font-round">VS</span>
-
-      <div className="flex flex-col items-center">
-        <div className="w-11 h-13 rounded-b-lg bg-sky-200 border-2 border-sky-400 flex items-center justify-center text-sky-800 text-[11px] font-bold shadow-xs">
-          가짜
-        </div>
-        <div className="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center text-[10px] font-extrabold mt-1 shadow-xs">
-          X
-        </div>
-      </div>
-    </div>
+  <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-[#2FC5D1] select-none rounded-2xl group">
+    <img
+      src={publicAsset('/assets/thumbnails/real_or_fake_game.png')}
+      alt="진짜 유물과 가짜 유물 찾기"
+      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+      loading="eager"
+    />
+    <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl pointer-events-none" />
   </div>
 );
 
