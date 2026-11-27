@@ -109,7 +109,8 @@ export const KidsZzangLobby: React.FC<KidsZzangLobbyProps> = ({ onStartGame }) =
       badge: '탐구!',
       badgeColor: 'bg-[#4F46E5]',
       badgeBorderColor: 'border-[#3730A3]',
-      thumbnail: <RealVsFakeRelicThumbnail />
+      thumbnail: <RealVsFakeRelicThumbnail />,
+      externalRoute: { path: '/RealOrFake/' }
     },
     {
       id: 'escape-room',
